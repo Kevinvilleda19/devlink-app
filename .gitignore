@@ -1,0 +1,11 @@
+# Node
+client/node_modules
+client/dist
+
+# Python
+server/venv
+__pycache__/
+
+# System
+.DS_Store
+.env
