@@ -5,8 +5,8 @@ import './App.css'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">
+    <div className="min-h-screen w-full bg-gray-100 flex items-center justify-center">
+      <h1 className="text-4xl font-bold text-blue-600 text-center">
         DevLink is Live!
       </h1>
     </div>
