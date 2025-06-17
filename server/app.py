@@ -48,6 +48,28 @@ def register():
         "user": new_user.serialize(),
         "token": access_token
     }), 201
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+
+    email = data.get('email')
+    password = data.get('password')
+
+    if not email or not password:
+        return jsonify({"error": "Email and password are required"}), 400
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user or not user.check_password(password):
+        return jsonify({"error": "Invalid email or password"}), 401
+
+    access_token = create_access_token(identity=user.id)
+
+    return jsonify({
+        "message": "Login successful",
+        "user": user.serialize(),
+        "token": access_token
+    }), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
